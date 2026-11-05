@@ -1,0 +1,170 @@
+TESTE123<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Aprenda a criar vídeos animados pro YouTube com inteligência artificial, sem gravar e sem aparecer.">
+<title>Canal Animado com IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+--bg:#070a1f; --panel:#0e1438; --line:#24306e; --fg:#eef2ff; --muted:#a3acd6;
+--cyan:#5fe0ff; --yellow:#ffd84a; --red:#ff3b5c; --green:#59e07a;
+--f-pixel:"Silkscreen","Courier New",monospace; --f-head:"Bricolage Grotesque","Trebuchet MS",sans-serif; --f-body:"Figtree","Segoe UI",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--f-body);margin:0;
+background-image:linear-gradient(rgba(95,160,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(95,160,255,.06) 1px,transparent 1px);background-size:56px 56px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+.tag{display:inline-block;font:400 13px/1 var(--f-pixel);letter-spacing:2px;color:var(--fg);border:2px solid var(--cyan);padding:8px 10px 6px;box-shadow:0 0 18px rgba(95,224,255,.35);text-transform:uppercase}
+.tag b{color:var(--cyan);font-weight:400}
+h1,h2,h3{font-family:var(--f-head);text-wrap:balance;margin:0}
+h1{font-weight:800;font-size:clamp(36px,6.4vw,68px);line-height:1.02;letter-spacing:-1px}
+h1 em{font-style:normal;color:var(--yellow)}
+h2{font-weight:800;font-size:clamp(28px,4.2vw,44px);line-height:1.08}
+h3{font-weight:800;font-size:21px;line-height:1.2}
+p{margin:0}
+.lead{color:var(--muted);font-size:clamp(17px,2.1vw,20px);max-width:58ch}
+.eyebrow{font:400 13px/1 var(--f-pixel);letter-spacing:2px;color:var(--cyan);text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--yellow);color:#14102a;text-decoration:none;font:700 15px/1 var(--f-pixel);letter-spacing:1px;padding:20px 26px 18px;border:3px solid #14102a;box-shadow:6px 6px 0 var(--red);transition:transform .12s,box-shadow .12s;text-transform:uppercase}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--red)}
+.btn:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+.small{font-size:14px;color:var(--muted)}
+header{padding-block:28px 0}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;padding-block:44px 64px}
+.hero>*{min-width:0}
+.hero .copy{display:grid;gap:22px;justify-items:start}
+.screen{position:relative;aspect-ratio:16/9;max-width:100%;border:3px solid var(--cyan);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--line),0 0 40px rgba(95,224,255,.25);background:radial-gradient(circle at 70% 30%,rgba(255,59,92,.35),transparent 55%),radial-gradient(circle at 20% 80%,rgba(95,224,255,.3),transparent 55%),#0a0f2e;display:grid;place-items:center;text-align:center}
+.screen .play{width:92px;height:92px;border:4px solid var(--yellow);display:grid;place-items:center;font:400 40px/1 var(--f-pixel);color:var(--yellow);box-shadow:6px 6px 0 var(--red)}
+.screen .big{font:400 clamp(18px,2.6vw,26px)/1.3 var(--f-pixel);letter-spacing:2px;margin-top:18px}
+.screen .big b{color:var(--cyan);font-weight:400}
+.screen .rec{position:absolute;left:12px;top:12px;font:400 12px/1 var(--f-pixel);background:var(--red);color:#fff;padding:7px 9px 5px;letter-spacing:1px}
+.nope{display:flex;flex-wrap:wrap;gap:10px}
+.nope span{font:500 14px/1 var(--f-mono);border:1px solid var(--line);background:var(--panel);padding:10px 12px;color:var(--fg)}
+.nope span::before{content:"✕ ";color:var(--red)}
+section{padding-block:72px;border-top:1px solid var(--line)}
+.head{display:grid;gap:14px;margin-bottom:36px;max-width:720px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--panel);border:1px solid var(--line);padding:22px;display:grid;gap:10px;align-content:start}
+.step .n{font:400 13px/1 var(--f-pixel);color:var(--yellow);letter-spacing:2px}
+.step p{color:var(--muted);font-size:16px}
+.channels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ch{display:grid;gap:10px;align-content:start}
+.thumb{aspect-ratio:16/9;max-width:100%;border:2px solid var(--line);display:grid;place-items:center;font:400 34px/1 var(--f-pixel)}
+.t1{background:linear-gradient(160deg,#1a0f2e,#3a0a1a);color:var(--red)}
+.t2{background:linear-gradient(160deg,#06281a,#0e3a2a);color:var(--green)}
+.t3{background:linear-gradient(160deg,#2a4a1a,#7a4a2a);color:var(--yellow)}
+.t4{background:linear-gradient(160deg,#2a0a5a,#0a3a4a);color:var(--cyan)}
+.ch b{font:400 13px/1.2 var(--f-pixel);letter-spacing:1px;color:var(--fg);text-transform:uppercase}
+.ch span{font-size:14px;color:var(--muted)}
+.lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lesson{border-left:3px solid var(--cyan);padding:4px 0 4px 18px;display:grid;gap:8px}
+.lesson .big{font:800 40px/1 var(--f-head);color:var(--cyan);font-variant-numeric:tabular-nums}
+.lesson p{color:var(--muted);font-size:16px}
+.forwho{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{background:var(--panel);border:1px solid var(--line);padding:26px;display:grid;gap:14px;align-content:start}
+.box ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.box li{padding-left:28px;position:relative}
+.yes li::before{content:"✔";position:absolute;left:0;color:var(--green)}
+.no li::before{content:"✕";position:absolute;left:0;color:var(--red)}
+.offer{background:var(--panel);border:3px solid var(--yellow);box-shadow:10px 10px 0 rgba(255,216,74,.18);padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
+.offer>*{min-width:0}
+.offer ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.offer li{padding-left:28px;position:relative}
+.offer li::before{content:"▸";position:absolute;left:4px;color:var(--yellow)}
+.offer .cta{display:grid;gap:16px;justify-items:start}
+.guar{display:flex;gap:14px;align-items:center;font-size:15px;color:var(--muted)}
+.guar .seal{flex:none;width:58px;height:58px;border:2px dashed var(--green);display:grid;place-items:center;font:400 13px/1.1 var(--f-pixel);color:var(--green);text-align:center}
+details{border-bottom:1px solid var(--line);padding-block:18px}
+details summary{cursor:pointer;font:800 19px/1.3 var(--f-head);list-style:none;display:flex;justify-content:space-between;gap:16px}
+details summary::after{content:"+";font-family:var(--f-pixel);color:var(--cyan)}
+details[open] summary::after{content:"–"}
+details summary:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+details p{color:var(--muted);margin-top:10px;max-width:65ch}
+footer{padding-block:40px 120px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(7,10,31,.94);border-top:2px solid var(--yellow);padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:none;justify-content:space-between;align-items:center;gap:12px}
+.bar span{font:400 12px/1.3 var(--f-pixel);letter-spacing:1px}
+.bar .btn{padding:14px 16px 12px;font-size:12px;box-shadow:4px 4px 0 var(--red)}
+@media (max-width:860px){.hero,.offer{grid-template-columns:1fr}.steps,.lessons{grid-template-columns:1fr 1fr}.channels{grid-template-columns:1fr 1fr}.forwho{grid-template-columns:1fr}.bar{display:flex}}
+@media (max-width:520px){.steps,.lessons{grid-template-columns:1fr}.hero{padding-block:28px 48px}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<header class="wrap"><span class="tag">Dev <b>Dexter</b></span></header>
+<div class="wrap">
+<div class="hero">
+<div class="copy">
+<span class="eyebrow">Curso · Canal animado com IA</span>
+<h1>Crie vídeos animados pro YouTube <em>sem gravar nada</em></h1>
+<p class="lead">Roteiro, voz, animação, música e capa feitos com inteligência artificial. O mesmo método que hoje produz vídeos pra 5 canais diferentes, todo dia.</p>
+<div class="nope"><span>sem câmera</span><span>sem microfone</span><span>sem aparecer</span><span>sem saber programar</span></div>
+<a class="btn" href="https://pay.hotmart.com/H108321266E" target="_blank" rel="noopener">Quero aprender ▸</a>
+</div>
+<div class="screen"><span class="rec">● NADA FOI GRAVADO</span><div><div class="play" style="margin:0 auto">▶</div><p class="big">5 CANAIS<br><b>0 GRAVAÇÕES</b></p></div></div>
+</div>
+</div>
+<section><div class="wrap">
+<div class="head"><span class="eyebrow">O método</span><h2>Seis etapas, todas com IA, com você no comando</h2><p class="lead">Você aprende a pedir cada parte do vídeo do jeito certo, e a corrigir o que ficou torto.</p></div>
+<div class="steps">
+<div class="step"><span class="n">ETAPA 1</span><h3>Pesquisa</h3><p>A IA busca o tema, lê as fontes e separa os números. Nada de canal que inventa informação.</p></div>
+<div class="step"><span class="n">ETAPA 2</span><h3>Roteiro</h3><p>Gancho nos primeiros 2 segundos, frases curtas e um final que faz a pessoa assistir de novo.</p></div>
+<div class="step"><span class="n">ETAPA 3</span><h3>Voz</h3><p>Narração sintética com o tempo exato de cada palavra, pra legenda e boca do personagem sincronizarem.</p></div>
+<div class="step"><span class="n">ETAPA 4</span><h3>Animação</h3><p>Cenas 2D e 3D com luz, sombra e efeito de cinema, geradas quadro a quadro. Sem programa de edição.</p></div>
+<div class="step"><span class="n">ETAPA 5</span><h3>Som</h3><p>Trilha e efeitos no clima de cada canal, com a música abaixando sozinha quando tem voz.</p></div>
+<div class="step"><span class="n">ETAPA 6</span><h3>Capa e textos</h3><p>Capa, título, descrição com capítulos e fontes, e comentário fixado prontos pra colar.</p></div>
+</div>
+</div></section>
+<section><div class="wrap">
+<div class="head"><span class="eyebrow">Feito com o método</span><h2>Cinco canais, cinco estilos, zero gravação</h2><p class="lead">Mistério, finanças, construção, ciência e tecnologia. Cada canal com identidade própria.</p></div>
+<div class="channels">
+<div class="ch"><div class="thumb t1">?</div><b>QMistério?</b><span>Mistério e casos reais, com clima de cinema</span></div>
+<div class="ch"><div class="thumb t2">R$</div><b>Investa Certo</b><span>Finanças com mascote e dados do Banco Central</span></div>
+<div class="ch"><div class="thumb t3">▲</div><b>Construa Você Mesmo</b><span>Construção em maquete 3D, etapa por etapa</span></div>
+<div class="ch"><div class="thumb t4">✶</div><b>Curioso Demais</b><span>Ciência do dia a dia com um alien narrador</span></div>
+</div>
+</div></section>
+<section><div class="wrap">
+<div class="head"><span class="eyebrow">O que os dados ensinaram</span><h2>Você aprende com os erros que eu já cometi</h2><p class="lead">Lições tiradas do YouTube Analytics dos próprios canais, que vão direto pro curso.</p></div>
+<div class="lessons">
+<div class="lesson"><span class="big">70%</span><p>de retenção num Short de 33 segundos, contra menos da metade nos de mais de 50. Tamanho importa.</p></div>
+<div class="lesson"><span class="big">2 s</span><p>é o tempo que o gancho tem. Propaganda logo depois dele fazia as pessoas irem embora.</p></div>
+<div class="lesson"><span class="big">8 min+</span><p>nos vídeos longos, pra liberar anúncios no meio e aumentar o que o canal ganha.</p></div>
+</div>
+</div></section>
+<section><div class="wrap">
+<div class="head"><span class="eyebrow">Pra quem é</span><h2>Esse curso é pra você se…</h2></div>
+<div class="forwho">
+<div class="box yes"><h3>É pra você</h3><ul><li>Quer um canal no YouTube mas não quer aparecer</li><li>Não sabe programar e nem editar vídeo</li><li>Quer postar com frequência sem passar o dia editando</li><li>Quer um canal original, que respeite as regras de monetização</li></ul></div>
+<div class="box no"><h3>Não é pra você</h3><ul><li>Procura dinheiro fácil sem esforço nenhum</li><li>Quer copiar vídeo dos outros e repostar</li><li>Não pretende acompanhar os números do próprio canal</li></ul></div>
+</div>
+</div></section>
+<section id="oferta"><div class="wrap">
+<div class="offer">
+<div style="display:grid;gap:18px">
+<span class="eyebrow">Acesso ao curso</span>
+<h2>Comece seu canal animado com IA hoje</h2>
+<ul><li>As 6 etapas, do tema à capa, passo a passo</li><li>Como criar a identidade visual de cada canal</li><li>Estratégia de Shorts e vídeos longos que segura a audiência</li><li>Regras de monetização do YouTube pra canal feito com IA</li></ul>
+</div>
+<div class="cta">
+<a class="btn" href="https://pay.hotmart.com/H108321266E" target="_blank" rel="noopener">Garantir minha vaga ▸</a>
+<p class="small">Pagamento seguro pela Hotmart.</p>
+<div class="guar"><span class="seal">7<br>DIAS</span><span>Comprou e não gostou? Você tem 7 dias pra pedir o dinheiro de volta pela própria Hotmart.</span></div>
+</div>
+</div>
+</div></section>
+<section><div class="wrap">
+<div class="head"><span class="eyebrow">Perguntas</span><h2>Dúvidas comuns</h2></div>
+<details><summary>Preciso saber programar?</summary><p>Não. A IA escreve tudo. Você aprende o que pedir e como corrigir quando algo sai diferente do que você quer.</p></details>
+<details><summary>Preciso aparecer ou gravar minha voz?</summary><p>Não. A voz é gerada por IA e os personagens são animados. Nada é gravado.</p></details>
+<details><summary>Canal feito com IA pode ser monetizado?</summary><p>Pode, desde que seja original. O YouTube não paga por conteúdo produzido em massa, genérico ou repetitivo. O curso mostra como pesquisar de verdade e variar o formato pra ficar dentro das regras.</p></details>
+<details><summary>Serve pra qualquer nicho?</summary><p>Sim. Os exemplos do curso vão de mistério a finanças, construção e ciência. Você aprende a escolher um nicho com três perguntas simples antes de começar.</p></details>
+<details><summary>Quanto tempo leva pra fazer um vídeo?</summary><p>Com o processo pronto, um Short sai em uns 20 minutos de trabalho e um vídeo longo em torno de uma hora.</p></details>
+</div></section>
+<footer><div class="wrap">Dev Dexter · Conteúdo e vídeos produzidos com auxílio de inteligência artificial. Resultados variam de acordo com a dedicação e o nicho de cada pessoa.</div></footer>
+<div class="bar"><span>CANAL ANIMADO<br>COM IA</span><a class="btn" href="https://pay.hotmart.com/H108321266E" target="_blank" rel="noopener">Quero ▸</a></div>
+</body>
+</html>
